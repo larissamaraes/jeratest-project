@@ -1,0 +1,42 @@
+ Operating System Files
+
+*.DS_Store
+Thumbs.db
+*.sw?
+.#*
+*#
+*~
+*.sublime-*
+
+# Build Artifacts
+
+.gradle/
+build/
+target/
+bin/
+dependency-reduced-pom.xml
+
+# Eclipse Project Files
+
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA Files
+
+*.iml
+*.ipr
+*.iws
+*.idea
+*.log
+
+# Maven
+
+log/
+target/
+.mvn/
+
+README.html
+db-schema.sql
+hbm2schema.sql
+infosan_epanet.log.*
