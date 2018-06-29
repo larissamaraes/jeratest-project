@@ -3,6 +3,8 @@ package com.jeratest.studylinks.domain;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.collect.Lists;
 
 @Entity
@@ -10,9 +12,15 @@ public class StudyLink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
+
     private String url;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     private Date date;
+
     @Column
     @ElementCollection(targetClass=String.class)
     private List<String> categories = Lists.newArrayList();
