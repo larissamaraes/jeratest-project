@@ -3,6 +3,7 @@ package com.jeratest.studylinks.controller;
 import com.jeratest.studylinks.domain.StudyLink;
 import com.jeratest.studylinks.service.StudyLinkService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class StudyLinkController {
     }
 
     @PostMapping("/")
-    public StudyLink create(StudyLink studyLink){
+    public StudyLink create(@Validated @RequestBody StudyLink studyLink){
         return studyLinkService.save(studyLink);
     }
 
@@ -34,7 +35,7 @@ public class StudyLinkController {
     }
 
     @PutMapping("/{studyLinkId}")
-    public StudyLink update(@PathVariable("studyLinkId") Long studyLinkId, StudyLink studyLink){
+    public StudyLink update(@PathVariable("studyLinkId") Long studyLinkId, @RequestBody StudyLink studyLink){
         return studyLinkService.update(studyLinkId, studyLink);
     }
 
