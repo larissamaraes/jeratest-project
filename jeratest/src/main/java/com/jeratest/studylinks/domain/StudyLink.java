@@ -1,6 +1,7 @@
 package com.jeratest.studylinks.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 import com.google.common.collect.Lists;
 
@@ -11,6 +12,7 @@ public class StudyLink {
     private Long id;
     private String title;
     private String url;
+    private Date date;
     @Column
     @ElementCollection(targetClass=String.class)
     private List<String> categories = Lists.newArrayList();
@@ -38,6 +40,10 @@ public class StudyLink {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public Date getDate() { return date; }
+
+    public void setDate(Date date) { this.date = date; }
 
     public List<String> getCategories() {
         return categories;
