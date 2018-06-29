@@ -38,8 +38,9 @@ public class StudyLinkController {
         return studyLinkService.update(studyLinkId, studyLink);
     }
 
-    public String delete(Long id){
-        return studyLinkService.delete(id);
+    @DeleteMapping("/{studyLinkId}")
+    public String delete(@PathVariable("studyLinkId") Long studyLinkId){
+        return studyLinkService.delete(studyLinkId);
     }
 
 }
