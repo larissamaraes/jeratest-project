@@ -14,5 +14,5 @@ public interface StudyLinkService {
 
     StudyLink update(Long id, StudyLink studyLink);
 
-    void delete(Long id);
+    String delete(Long id);
 }

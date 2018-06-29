@@ -44,7 +44,8 @@ public class StudyLinkServiceImplementation implements StudyLinkService {
 
     @Override
     @Transactional
-    public void delete(Long id){
+    public String delete(Long id){
         studyLinkRepository.deleteById(id);
+        return "Done!";
     }
 }
