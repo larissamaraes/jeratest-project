@@ -1,38 +1,28 @@
-<!-- <mat-card>
-    <mat-form-field>
-      <input matInput [(ngModel)]="answer" placeholder="placeholder">
-    </mat-form-field>
-    <br>
-    <button mat-raised-button (click)="showAnswer()">Answer me</button>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card>
-  
-  
-  <mat-card *ngIf="answerDisplay">
-    <h1>{{ answerDisplay }}, you're damn right.</h1>
-</mat-card> -->
 <mat-card>
-    <h2>Adicione as informações do artigo:</h2>
-    <div class="example-container">
-        <mat-form-field>
-            <input matInput placeholder="Título">
-        </mat-form-field>
+    <div>
+        <form [formGroup]="studyLinkForm" class="form-inline">
+            <h2>Adicione as informações do artigo:</h2>
+            <div class="example-container">
+                <mat-form-field>
+                    <input matInput formControlName="title" placeholder="Título">
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Url">
-        </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="url" placeholder="Url">
+                </mat-form-field>
 
-        <mat-form-field class="example-chip-list">
-            <mat-chip-list #chipList>
-                <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable" (removed)="remove(fruit)">
-                    {{fruit.name}}
-                    <!-- <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon> -->
-                </mat-chip>
-                <input placeholder="Categorias" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-                    (matChipInputTokenEnd)="add($event)">
-            </mat-chip-list>
-        </mat-form-field>
+                <mat-form-field class="example-chip-list">
+                    <mat-chip-list #chipList>
+                        <mat-chip *ngFor="let category of categories" [selectable]="selectable" [removable]="removable" (removed)="remove(category)">
+                            {{category}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Categorias" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                </mat-form-field>
+            </div>
+        </form>
     </div>
-
-    <button mat-raised-button color="primary">Salvar</button>
+    <button mat-raised-button (click)="onClick()" color="primary">Salvar</button>
 </mat-card>
