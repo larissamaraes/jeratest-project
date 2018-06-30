@@ -9,13 +9,15 @@ import { ToolbarComponent } from  './toolbar/toolbar.component';
 import { StudyLinkFormComponent } from './study-link-form/study-link-form.component';
 import { StudyLinkListComponent } from  './study-link-list/study-link-list.component';
 import { StudyLinkService } from './service/study-link.service';
+import { DialogComponent } from  './dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     StudyLinkFormComponent,
-    StudyLinkListComponent
+    StudyLinkListComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,7 @@ import { StudyLinkService } from './service/study-link.service';
     HttpClientModule
   ],
   providers: [StudyLinkService],
+  entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
