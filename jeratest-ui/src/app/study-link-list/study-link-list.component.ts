@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { StudyLinkService } from '../service/study-link.service';
 import {MatTableDataSource} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { StudyLink } from '../model/study-link.model';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -19,7 +20,8 @@ export class StudyLinkListComponent {
     dialogRef: MatDialogRef<DialogComponent>;
 
     constructor(private studyLinkService: StudyLinkService,
-        public dialog: MatDialog) {
+        public dialog: MatDialog,
+        private snackBar: MatSnackBar,) {
 
         this.studyLinkService.list().subscribe((result) => {
             this.studyLinks = result;
@@ -40,6 +42,9 @@ export class StudyLinkListComponent {
                 this.studyLinksNotChecked.splice(index, 1);
             }
             this.dataSource = new MatTableDataSource(this.studyLinksNotChecked);
+            this.snackBar.open('Leitura concluída, jovem Padawan!', '', {
+                duration: 3000,
+              });
         });
     }
 
