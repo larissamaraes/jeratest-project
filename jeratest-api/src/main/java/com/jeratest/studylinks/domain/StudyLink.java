@@ -25,6 +25,8 @@ public class StudyLink {
     @ElementCollection(targetClass=String.class)
     private List<String> categories = Lists.newArrayList();
 
+    private Boolean checked;
+
     public Long getId() {
         return id;
     }
@@ -60,4 +62,8 @@ public class StudyLink {
     public void setCategories(List<String> categories) {
         this.categories = categories;
     }
+
+    public Boolean getChecked() { return checked; }
+
+    public void setChecked(Boolean checked) { this.checked = checked; }
 }

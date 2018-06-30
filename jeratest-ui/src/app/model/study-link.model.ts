@@ -5,6 +5,7 @@ export class StudyLink
         public title: string,
         public url: string,
         public date: string,
-        public categories: string[]
+        public categories: string[],
+        public checked: boolean
     ){}
 }

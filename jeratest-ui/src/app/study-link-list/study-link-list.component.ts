@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StudyLinkService } from '../service/study-link.service';
+import { StudyLink } from '../model/study-link.model';
 
 export interface PeriodicElement {
     name: string;
@@ -29,6 +31,20 @@ const ELEMENT_DATA: PeriodicElement[] = [
     templateUrl: 'study-link-list.component.html',
 })
 export class StudyLinkListComponent {
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-    dataSource = ELEMENT_DATA;
+
+    studyLinks: StudyLink[];
+    dataSource: any[];
+
+    constructor(private studyLinkService: StudyLinkService) {
+
+        this.studyLinkService.list().subscribe((result) => {
+            this.studyLinks = result;
+            this.dataSource = this.studyLinks;
+        });
+
+    }
+
+
+    displayedColumns: string[] = ['id', 'name', 'date', 'actions'];
+    
 }

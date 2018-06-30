@@ -20,7 +20,7 @@ export class StudyLinkFormComponent {
   constructor(private snackBar: MatSnackBar,
     private studyLinkService: StudyLinkService,
     private formBuilder: FormBuilder) {
-    this.studyLink = new StudyLink(null, null, null, null, null);
+    this.studyLink = new StudyLink(null, null, null, null, null, null);
 
     this.studyLinkForm = this.formBuilder.group({
       title: '',
@@ -60,6 +60,7 @@ export class StudyLinkFormComponent {
     this.studyLink.url = this.studyLinkForm.controls['url'].value;
     this.studyLink.date = this.parseDateToString(new Date());
     this.studyLink.categories = this.categories;
+    this.studyLink.checked = false;
     return this.studyLink;
   }
 
