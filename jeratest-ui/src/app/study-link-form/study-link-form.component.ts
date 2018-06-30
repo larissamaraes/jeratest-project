@@ -2,7 +2,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component } from '@angular/core';
 import { MatChipInputEvent } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StudyLinkService } from '../service/study-link.service';
 import { StudyLink } from '../model/study-link.model';
 
@@ -23,10 +23,9 @@ export class StudyLinkFormComponent {
     this.studyLink = new StudyLink(null, null, null, null, null, null);
 
     this.studyLinkForm = this.formBuilder.group({
-      title: '',
-      url: ''
+      title: ['', Validators.required],
+      url: ['', Validators.required]
     });
-
   }
 
   visible = true;
