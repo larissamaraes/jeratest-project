@@ -1,41 +1,37 @@
 <div mat-dialog-content style="width:500px;">
 
     <mat-list>
-        <h3 mat-subheader>No.</h3>
-        <mat-list-item>
-            <mat-icon mat-list-icon>cloud_upload</mat-icon>
-            <!-- <h4 mat-line>{{studyLink.id}}</h4> -->
-            <!--<p mat-line> {{folder.updated | date}} </p>-->
-        </mat-list-item>
-
-
         <h3 mat-subheader>Nome</h3>
         <mat-list-item>
-            <mat-icon mat-list-icon>cloud_done</mat-icon>
-            <!-- <h4 mat-line>{{studyLink.name}}</h4> -->
+            <mat-icon mat-list-icon>book</mat-icon>
+            <h4 mat-line>{{studyLink.title}}</h4>
             <!--<p mat-line> {{folder.updated | date}} </p>-->
         </mat-list-item>
 
 
         <h3 mat-subheader>Url</h3>
         <mat-list-item>
-            <mat-icon mat-list-icon>cloud_done</mat-icon>
-            <!-- <h4 mat-line>{{studyLink.url}}</h4> -->
+            <mat-icon mat-list-icon>settings_ethernet</mat-icon>
+            <a mat-line href="{{studyLink.url}}">{{studyLink.url}}</a>
             <!--<p mat-line> {{folder.updated | date}} </p>-->
         </mat-list-item>
 
 
         <h3 mat-subheader>Categorias</h3>
         <mat-list-item>
-            <mat-icon mat-list-icon>error</mat-icon>
-            <!-- <h4 mat-line>{{studyLink.categories}}</h4> -->
+            <mat-icon mat-list-icon>forum</mat-icon>
+            <mat-chip-list #chipList>
+                <mat-chip *ngFor="let category of studyLink.categories" [selectable]="selectable">
+                    {{category}}
+                </mat-chip>
+            </mat-chip-list>
             <!--<p mat-line> {{folder.updated | date}} </p>-->
         </mat-list-item>
 
         <h3 mat-subheader>Data</h3>
         <mat-list-item>
-            <mat-icon mat-list-icon>cloud_done</mat-icon>
-            <!-- <h4 mat-line>{{studyLink.date}}</h4> -->
+            <mat-icon mat-list-icon>calendar_today</mat-icon>
+            <h4 mat-line>{{studyLink.date}}</h4>
             <!--<p mat-line> {{folder.updated | date}} </p>-->
         </mat-list-item>
 
@@ -44,5 +40,5 @@
 </div>
 
 <div mat-dialog-actions class="pt-24">
-    <button mat-button (click)="dialog.close()">Fechar</button>
+    <button mat-button (click)="dialogRef.close()">Fechar</button>
 </div>
