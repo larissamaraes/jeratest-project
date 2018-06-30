@@ -1,26 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule } from '@angular/material';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
-import { StudyLinkFormComponent } from './study-link-form/study-link-form.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
+import { MaterialModule } from './material.module';
+import { FormsModule } from '@angular/forms';
+import { ToolbarComponent } from  './toolbar/toolbar.component';
+import { StudyLinkFormComponent } from './study-link-form/study-link-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    ToolbarComponent,
     StudyLinkFormComponent
   ],
   imports: [
     BrowserModule,
-    MatToolbarModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
