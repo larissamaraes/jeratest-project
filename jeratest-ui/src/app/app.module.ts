@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbar } from '@angular/material';
+import { MatToolbarModule } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { StudyLinkFormComponent } from './study-link-form/study-link-form.component';
 
 import { AppComponent } from './app.component';
 
@@ -9,10 +13,14 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    MatToolbar
+    StudyLinkFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatToolbarModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
