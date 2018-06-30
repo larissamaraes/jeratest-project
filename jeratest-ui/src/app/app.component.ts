@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ToolbarComponent } from  './toolbar/toolbar.component';
 
 @Component({
   selector: 'app-root',
@@ -6,16 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  answer: string = '';
-  answerDisplay: string = '';
-  showSpinner: boolean = false;
 
-  showAnswer() {
-    this.showSpinner = true;
+  @ViewChild(ToolbarComponent) public toolbar: ToolbarComponent;
 
-    setTimeout(() => {
-      this.answerDisplay = this.answer;
-      this.showSpinner = false;
-    }, 2000);
+  saveArticle: boolean = true;
+  listArticles: boolean = false;
+
+  onSavePage(){
+    this.saveArticle = true;
+    this.listArticles = false;
+  }
+
+  onListPage(){
+    this.saveArticle = false;
+    this.listArticles = true;
   }
 }

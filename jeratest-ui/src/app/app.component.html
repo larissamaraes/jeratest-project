@@ -1,2 +1,4 @@
-<app-toolbar></app-toolbar>
-<app-study-link-form></app-study-link-form>
+<app-toolbar (savePage)="onSavePage()" (listPage)="onListPage()"></app-toolbar>
+<div *ngIf="saveArticle">
+    <app-study-link-form></app-study-link-form>
+</div>
