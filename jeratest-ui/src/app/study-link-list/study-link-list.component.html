@@ -1,5 +1,6 @@
 <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+        <mat-icon matPrefix>search</mat-icon>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar artigo">
 </mat-form-field>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
