@@ -1,3 +1,6 @@
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+</mat-form-field>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
@@ -23,7 +26,7 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item>
+                <button (click)="onCheckStudyLink(element)" mat-menu-item>
                     <mat-icon>done</mat-icon>
                     <span>Marcar como Lido</span>
                 </button>
