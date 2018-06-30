@@ -7,13 +7,15 @@ import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToolbarComponent } from  './toolbar/toolbar.component';
 import { StudyLinkFormComponent } from './study-link-form/study-link-form.component';
+import { StudyLinkListComponent } from  './study-link-list/study-link-list.component';
 import { StudyLinkService } from './service/study-link.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    StudyLinkFormComponent
+    StudyLinkFormComponent,
+    StudyLinkListComponent
   ],
   imports: [
     BrowserModule,
