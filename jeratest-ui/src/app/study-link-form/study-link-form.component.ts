@@ -63,13 +63,22 @@ export class StudyLinkFormComponent {
     return this.studyLink;
   }
 
+  cleanForm(){
+    this.studyLinkForm = this.formBuilder.group({
+      title: '',
+      url: ''
+    });
+    this.categories = [];
+  }
+
 
   onClick() {
     this.studyLinkService.create(this.getStudyLinkFromForm()).subscribe((result) => {
       this.snackBar.open('Artigo salvo com sucesso!', '', {
         duration: 3000,
       });
-    })
+      this.cleanForm();
+    });
   }
 
   parseDateToString(data) {
